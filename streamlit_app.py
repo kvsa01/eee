@@ -2,7 +2,6 @@
 # Import libraries
 import streamlit as st
 import pandas as pd
-import altair as alt
 import plotly.express as px
 
 #######################
@@ -13,32 +12,33 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-alt.themes.enable("dark")
-
-
 #######################
 # Load data
 df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
-
 
 #######################
 # Sidebar
 with st.sidebar:
     st.title('🏂 US Population Dashboard')
-
     year_list = list(df_reshaped.year.unique())[::-1]
-
     selected_year = st.selectbox('Select a year', year_list)
     df_selected_year = df_reshaped[df_reshaped.year == selected_year]
     df_selected_year_sorted = df_selected_year.sort_values(by="population", ascending=False)
-
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
-
 
 #######################
 # Plots
 
+# Create line chart
+fig_line = px.line(df_reshaped, x='year', y='population', title='Population Trend Over the Years')
+
+# Add chart to Streamlit app
+st.plotly_chart(fig_line)
+
+# Main Panel (same as before)
+col = st.columns((1.5, 4.5, 2), gap='medium')
+# Rest of the code for the main panel
 # Heatmap
 def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
     heatmap = alt.Chart(input_df).mark_rect().encode(

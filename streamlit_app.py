@@ -14,7 +14,7 @@ inception3 = data['Inception3']
 # Create subplots
 fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
-st.markdown("<h1 style='text-align: center;'>Comparision b/w ResNet50 vs AlexNet vs InceptionV3.</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>Comparision b/w ResNet50 vs AlexNet vs InceptionV3.</h3>", unsafe_allow_html=True)
 
 # Plotting the area plot
 ax[0].fill_between(x, resnet50, color='blue', alpha=0.3, label='ResNet50')

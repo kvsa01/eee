@@ -37,5 +37,8 @@ ax[2].bar(x, inception3, color='green', alpha=0.5, label='InceptionV3')
 ax[2].set_title('Bar Chart')
 ax[2].legend()
 
+st.markdown("<h5 style='text-align: Right;'>Comparision b/w ResNet50 vs AlexNet vs InceptionV3.</h5>", unsafe_allow_html=True)
+
+
 # Display the plot using Streamlit
 st.pyplot(fig)

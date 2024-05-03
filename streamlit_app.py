@@ -17,7 +17,7 @@ fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 # Plotting the area plot
 ax[0].fill_between(x, resnet50, color='blue', alpha=0.3, label='ResNet50')
 ax[0].fill_between(x, alexnet, color='red', alpha=0.3, label='AlexNet')
-ax[0].fill_between(x, inceptionv3, color='green', alpha=0.3, label='Inceptionv3')
+ax[0].fill_between(x, inceptionv3, color='green', alpha=0.3, label='Inception3')
 ax[0].set_title('Area Plot')
 ax[0].legend()
 

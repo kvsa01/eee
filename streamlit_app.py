@@ -40,4 +40,4 @@ ax[2].legend()
 # Display the plot using Streamlit
 st.pyplot(fig)
 
-st.markdown("<h7 style='text-align: Right;'>MFML Group 22</h7>", unsafe_allow_html=True)
+st.markdown("<h7 style='text-align: Right;'>EEE560 MFML Group 22</h7>", unsafe_allow_html=True)

@@ -5,6 +5,7 @@ import pandas as pd
 import altair as alt
 import plotly.express as px
 
+
 #######################
 # Page configuration
 st.set_page_config(
@@ -18,8 +19,7 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
-
+df = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
 
 #######################
 # Sidebar
@@ -133,4 +133,8 @@ def calculate_population_difference(input_df, input_year):
   selected_year_data['population_difference'] = selected_year_data.population.sub(previous_year_data.population, fill_value=0)
   return pd.concat([selected_year_data.states, selected_year_data.id, selected_year_data.population, selected_year_data.population_difference], axis=1).sort_values(by="population_difference", ascending=False)
 
+# Create line chart
+fig = px.line(df, x='date_column', y='value_column', title='Line Chart Title')
 
+# Add chart to Streamlit app
+st.plotly_chart(fig)

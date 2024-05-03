@@ -17,7 +17,7 @@ st.set_page_config(
 
 #######################
 # Load data from a CSV file
-data = pd.read_csv('data/path_to_your_file.csv')
+data = pd.read_csv('data/data.csv')
 #######################
 # Plots
 
@@ -25,7 +25,6 @@ data = pd.read_csv('data/path_to_your_file.csv')
 # Dashboard Main Panel
 col = st.columns((1.5, 4.5, 2), gap='medium')
 ---------------------------------------------------
-
 # Assuming 'x' is the common column for both graphs and 'y1', 'y2' are the values for each plot
 x = data['x']
 y1 = data['y1']
@@ -52,9 +51,5 @@ ax[1].bar(x_bars, y2_bars, width=0.5, color='red', label='b')
 ax[1].set_title('Graph c2')
 ax[1].legend()
 
-# Show plot
-plt.tight_layout()
-plt.show()
-
-# Add chart to Streamlit app
-st.plotly_chart(fig, ax)
+# Display the plot using Streamlit
+st.pyplot(fig)

@@ -24,7 +24,7 @@ data = pd.read_csv('data/data.csv')
 # Create line chart
 # Dashboard Main Panel
 col = st.columns((1.5, 4.5, 2), gap='medium')
----------------------------------------------------
+
 # Assuming 'x' is the common column for both graphs and 'y1', 'y2' are the values for each plot
 x = data['x']
 y1 = data['y1']

@@ -1,55 +1,39 @@
-#######################
-# Import libraries
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-#import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.pyplot as plt
 
-
-#######################
-# Page configuration
-st.set_page_config(
-    page_title="US Population Dashboard",
-    page_icon="🏂",
-    layout="wide",
-    initial_sidebar_state="expanded")
-
-#######################
 # Load data from a CSV file
 data = pd.read_csv('data/data.csv')
-#######################
-# Plots
 
-# Create line chart
-# Dashboard Main Panel
-col = st.columns((1.5, 4.5, 2), gap='medium')
-
-# Assuming 'x' is the common column for both graphs and 'y1', 'y2' are the values for each plot
+# Assuming 'x' is the common column for all graphs and 'ResNet50', 'AlexNet', 'Inceptionv3' are the values for each plot
 x = data['x']
-y1 = data['y1']
-y2 = data['y2']
+resnet50 = data['ResNet50']
+alexnet = data['AlexNet']
+inceptionv3 = data['Inceptionv3']
 
 # Create subplots
-fig, ax = plt.subplots(1, 2, figsize=(14, 5))
+fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
-# Plotting the area plot for c1
-ax[0].fill_between(x, y1, color='blue', alpha=0.3, label='a')
-ax[0].fill_between(x, y2, color='red', alpha=0.3, label='b')
-ax[0].set_title('Graph c1')
+# Plotting the area plot
+ax[0].fill_between(x, resnet50, color='blue', alpha=0.3, label='ResNet50')
+ax[0].fill_between(x, alexnet, color='red', alpha=0.3, label='AlexNet')
+ax[0].fill_between(x, inceptionv3, color='green', alpha=0.3, label='Inceptionv3')
+ax[0].set_title('Area Plot')
 ax[0].legend()
 
-# For the bar chart c2, we can simulate a different scenario or just reuse x, y1, y2 for simplicity
-# To simulate more bar-like data, you can use:
-y1_bars = y1[0:len(x):2]  # Select every second element for bar chart
-y2_bars = y2[0:len(x):2]
-x_bars = x[0:len(x):2]
-
-# Plotting the bar chart for c2
-ax[1].bar(x_bars - 0.5, y1_bars, width=0.5, color='blue', label='a')
-ax[1].bar(x_bars, y2_bars, width=0.5, color='red', label='b')
-ax[1].set_title('Graph c2')
+# Plotting the line graph
+ax[1].plot(x, resnet50, color='blue', label='ResNet50')
+ax[1].plot(x, alexnet, color='red', label='AlexNet')
+ax[1].plot(x, inceptionv3, color='green', label='Inceptionv3')
+ax[1].set_title('Line Graph')
 ax[1].legend()
+
+# Plotting the bar chart
+ax[2].bar(x, resnet50, color='blue', alpha=0.5, label='ResNet50')
+ax[2].bar(x, alexnet, color='red', alpha=0.5, label='AlexNet')
+ax[2].bar(x, inceptionv3, color='green', alpha=0.5, label='Inceptionv3')
+ax[2].set_title('Bar Chart')
+ax[2].legend()
 
 # Display the plot using Streamlit
 st.pyplot(fig)

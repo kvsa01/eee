@@ -6,7 +6,7 @@ import pandas as pd
 data = pd.read_csv('data/data.csv')
 
 # Assuming 'x' is the common column for all graphs and 'ResNet50', 'AlexNet', 'Inceptionv3' are the values for each plot
-x = data['x']
+x = data.index
 resnet50 = data['ResNet50']
 alexnet = data['AlexNet']
 inceptionv3 = data['Inceptionv3']

@@ -15,6 +15,8 @@ inception3 = data['Inception3']
 fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
 
+st.text("This is some text.")
+
 # Plotting the area plot
 ax[0].fill_between(x, resnet50, color='blue', alpha=0.3, label='ResNet50')
 ax[0].fill_between(x, alexnet, color='red', alpha=0.3, label='AlexNet')

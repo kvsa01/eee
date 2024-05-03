@@ -13,6 +13,7 @@ inception3 = data['Inception3']
 
 # Create subplots
 fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+plt.title('Comparision b/w ResNet50 vs AlexNet vs Inception V3')
 
 # Plotting the area plot
 ax[0].fill_between(x, resnet50, color='blue', alpha=0.3, label='ResNet50')
@@ -20,7 +21,6 @@ ax[0].fill_between(x, alexnet, color='red', alpha=0.3, label='AlexNet')
 ax[0].fill_between(x, inception3, color='green', alpha=0.3, label='Inception3')
 ax[0].set_title('Area Plot')
 ax[0].legend()
-title('Comparision b/w ResNet50 vs AlexNet vs Inception V3')
 
 # Plotting the line graph
 ax[1].plot(x, resnet50, color='blue', label='ResNet50')
